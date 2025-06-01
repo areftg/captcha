@@ -8,3 +8,9 @@ This is a simple Node.js server that generates numeric CAPTCHA images using the 
 ```bash
 npm install
 node index.js
+
+
+Dependencies
+  * express
+  * svg-captcha
+
