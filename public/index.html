@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>CAPTCHA Form</title>
+</head>
+<style>
+    body{
+        background-color: lightblue;
+    }
+</style>
+<body style="font-family: sans-serif; direction: rtl; text-align: center; margin-top: 50px;">
+  <h2>فرم با کپچا عددی</h2>
+
+  <form action="/verify" method="POST">
+    <div>
+      <img src="/captcha" alt="captcha image" id="captcha-img" />
+    </div>
+
+    <div>
+      <label for="captcha">کپچا را وارد کنید:</label><br />
+      <input type="text" id="captcha" name="captcha" required />
+    </div>
+
+    <button type="submit">ارسال</button>
+  </form>
+
+  <button onclick="refreshCaptcha()">🔄 بارگذاری مجدد کپچا</button>
+
+  <script>
+    function refreshCaptcha() {
+      const captchaImg = document.getElementById('captcha-img');
+      captchaImg.src = '/captcha?' + Date.now(); // جلوگیری از کش
+    }
+  </script>
+</body>
+</html>
